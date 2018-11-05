@@ -1,2 +1,2 @@
 # node-saga
-Saga library for orchestrating transactions in a distributed system
+Saga library for managing atomic transactions
