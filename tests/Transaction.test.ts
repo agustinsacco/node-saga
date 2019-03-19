@@ -6,8 +6,8 @@ describe('Transaction', () => {
     describe('Constructor Validation', () => {
         it('Should throw error when name property is missing', async () => {
             expect(() => new Transaction({
-                action: () => () => { return null; },
-                rollback: intendedId => (intendedId) => { return null; },
+                action: (): any => { return null; },
+                rollback: (intendedId: number): any => { return null; },
                 identifier: 'id',
             })).to.throw(Error, 'name property is required');
         });
@@ -15,8 +15,8 @@ describe('Transaction', () => {
         it('Should throw error when name property is not type string', async () => {
             expect(() => new Transaction({
                 name: 234,
-                action: () => () => { return null; },
-                rollback: intendedId => (intendedId) => { return null; },
+                action: (): any => { return null; },
+                rollback: (intendedId: number): any => { return null; },
                 identifier: 'id',
             })).to.throw(Error, 'name property must be of type "string"');
         });
@@ -24,7 +24,7 @@ describe('Transaction', () => {
         it('Should throw error when action property is missing', async () => {
             expect(() => new Transaction({
                 name: 'test',
-                rollback: intendedId => (intendedId) => { return null; },
+                rollback: (intendedId: number): any => { return null; },
                 identifier: 'id',
             })).to.throw(Error, 'action property is required');
         });
@@ -33,7 +33,7 @@ describe('Transaction', () => {
             expect(() => new Transaction({
                 name: 'test',
                 action: 'test',
-                rollback: intendedId => (intendedId) => { return null; },
+                rollback: (intendedId: number): any => { return null; },
                 identifier: 'id',
             })).to.throw(Error, 'action property must be a function');
         });
@@ -41,7 +41,7 @@ describe('Transaction', () => {
         it('Should throw error when rollback property is missing', async () => {
             expect(() => new Transaction({
                 name: 'test',
-                action: () => () => { return null; },
+                action: (): any => { return null; },
                 identifier: 'id',
             })).to.throw(Error, 'rollback property is required');
         });
@@ -49,7 +49,7 @@ describe('Transaction', () => {
         it('Should throw error when rollback property is not a function', async () => {
             expect(() => new Transaction({
                 name: 'test',
-                action: () => () => { return null; },
+                action: (): any => { return null; },
                 rollback: 'test',
                 identifier: 'id',
             })).to.throw(Error, 'rollback property must be a function');

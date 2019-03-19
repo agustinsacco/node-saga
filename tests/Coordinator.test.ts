@@ -2,16 +2,6 @@
 /* tslint:disable:chai-vague-errors */
 
 import { expect } from 'chai';
-import {
-    createPayment,
-    deletePayment,
-    createShipping,
-    deleteShipping,
-    createOrder,
-    deleteOrder,
-    createUser,
-    deleteUser
- } from './helpers/GenericRequest';
 import { Coordinator } from '../lib/Coordinator';
 import { Transaction } from '../lib/Transaction';
 
@@ -25,8 +15,8 @@ describe('Coordinator', () => {
             const saga = new Coordinator();
             saga.add(new Transaction({
                 name: 'test',
-                action: () => () => { return null; },
-                rollback: intendedId => (intendedId) => { return null; },
+                action: (): any => { return null; },
+                rollback: (intendedId: number): any => { return null; },
                 identifier: 'id',
             }));
 

@@ -86,7 +86,7 @@ describe('Coordinator::Rollback', () => {
                 const user: any = await saga.add(new Transaction({
                     name: 'createUserTransaction',
                     action: () => createUser(userPayload),
-                    rollback: intendedId => deleteUser(intendedId),
+                    rollback: (intendedId: number) => deleteUser(intendedId),
                     identifier: 'id',
                     async: false
                 }));
@@ -108,7 +108,7 @@ describe('Coordinator::Rollback', () => {
                 const order: any = await saga.add(new Transaction({
                     name: 'createOrderTransaction',
                     action: () => createOrder(orderPayload),
-                    rollback: intendedId => deleteOrder(intendedId),
+                    rollback: (intendedId: number) => deleteOrder(intendedId),
                     identifier: 'id',
                     async: false
                 }));
@@ -121,7 +121,7 @@ describe('Coordinator::Rollback', () => {
                 saga.add(new Transaction({
                     name: 'createPaymentTransaction',
                     action: () => createPayment(paymentPayload),
-                    rollback: intendedId => deletePayment(intendedId),
+                    rollback: (intendedId: number) => deletePayment(intendedId),
                     identifier: 'id',
                     async: true
                 }));
@@ -133,7 +133,7 @@ describe('Coordinator::Rollback', () => {
                 saga.add(new Transaction({
                     name: 'createShippingTransaction',
                     action: () => createShipping(shippingPayload),
-                    rollback: intendedId => deleteShipping(intendedId),
+                    rollback: (intendedId: number) => deleteShipping(intendedId),
                     identifier: 'id',
                     async: true
                 }));
@@ -264,7 +264,7 @@ describe('Coordinator::Rollback', () => {
                 const user: any = await saga.add(new Transaction({
                     name: 'createUserTransaction',
                     action: () => createUser(userPayload),
-                    rollback: intendedId => deleteUser(intendedId),
+                    rollback: (intendedId: number) => deleteUser(intendedId),
                     identifier: 'id',
                     async: false
                 }));
@@ -286,7 +286,7 @@ describe('Coordinator::Rollback', () => {
                 const order: any = await saga.add(new Transaction({
                     name: 'createOrderTransaction',
                     action: () => createOrder(orderPayload),
-                    rollback: intendedId => deleteOrder(intendedId),
+                    rollback: (intendedId: number) => deleteOrder(intendedId),
                     identifier: 'id',
                     async: false
                 }));
@@ -299,7 +299,7 @@ describe('Coordinator::Rollback', () => {
                 saga.add(new Transaction({
                     name: 'createPaymentTransaction',
                     action: () => createPayment(paymentPayload),
-                    rollback: intendedId => deletePayment(intendedId),
+                    rollback: (intendedId: number) => deletePayment(intendedId),
                     identifier: 'id',
                     async: true
                 }));
@@ -311,7 +311,7 @@ describe('Coordinator::Rollback', () => {
                 saga.add(new Transaction({
                     name: 'createShippingTransaction',
                     action: () => createShipping(shippingPayload),
-                    rollback: intendedId => deleteShipping(intendedId),
+                    rollback: (intendedId: number) => deleteShipping(intendedId),
                     identifier: 'id',
                     async: true
                 }));
